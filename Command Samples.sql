@@ -22,3 +22,19 @@ LIMIT 6, 3;
 -- 3 number of records
 
 -- Use of INNER JOIN
+SELECT order_id, o.customer_id, first_name, last_name
+FROM orders o
+JOIN customers c ON o.customer_id = c.customer_id;
+-- Exersice
+SELECT oi.order_id, oi.product_id, p.name as product_name, oi.quantity, oi.unit_price
+FROM sql_store.order_items oi
+JOIN products p ON oi.product_id = p.product_id;
+-- Self Join
+USE sql_hr;
+SELECT 
+	e.employee_id,
+    e.first_name,
+    m.first_name AS manager
+FROM employees e
+JOIN employees m ON e.reports_to = m.employee_id;
+-- Join Multiple Tables
